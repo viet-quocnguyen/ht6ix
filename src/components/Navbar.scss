@@ -1,0 +1,29 @@
+.background {
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f2f2f2; // TBD change as needed theme
+    position: fixed;
+}
+
+.navigationStack {
+    display:flex;
+    flex-direction: column;
+    margin-top:25vh;
+}
+
+.navLink {
+    margin: 3px 0px;
+}
+
+.navLink:hover {
+    color: lighten(#000000, 50%);
+    cursor: pointer;
+}
+
+#avatar {
+    width: 100px;
+    height: 100px;
+}
+
