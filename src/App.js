@@ -13,7 +13,7 @@ function App() {
           <div className="main">
             <Switch>
               <Route exact path="/">
-                <p>Dashboard</p>
+                <div className="pageTitle">Dashboard</div>
               </ Route>
               <Route exact path="/lessons" >
                 <List/>

@@ -6,7 +6,6 @@ class Navbar extends Component {
     render() {
         const navLink = [
             {
-                id: 1,
                 name: 'Home',
                 url: '/',
             }, {
@@ -19,7 +18,7 @@ class Navbar extends Component {
                 url: '',  // TBD
             }, {
                 id: 4,
-                name: '???',
+                name: '????',
                 url: '',  // TBD
             },
 
@@ -31,7 +30,7 @@ class Navbar extends Component {
                 <div className="navigationStack">
                     <img src={Avatar} id="avatar" alt="AvatarIcon"></img>
                     {navLink.map((link) =>
-                        <div className="navLink" onClick={() => window.location = link.url} > {link.name}</div>)}
+                        <div className="navLink" key={link.name} onClick={() => window.location = link.url} > {link.name}</div>)}
                 </div>
             </div >
         )
