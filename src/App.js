@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import List from './components/LessonsList';
 import './App.css';
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
               <Route exact path="/">
                 <p>Dashboard</p>
               </ Route>
-              <Route path="/lessons" >
-                <p>Lesson List here</p>
+              <Route exact path="/lessons" >
+                <List/>
               </Route>
             </Switch>
           </div>

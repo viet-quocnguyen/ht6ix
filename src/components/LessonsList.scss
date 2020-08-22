@@ -1,0 +1,27 @@
+// styles the set of boxes under each lesson
+.questionGallery {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+
+// the boxes under each lesson TBD pls delete after
+#staticBox {
+    width: 150px;
+    height: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    background-color: #c4c4c4; //TBD colour
+}
+
+// styles each lesson, title included
+.lessonInList {
+    margin: 20px 0px 30px 50px;
+}
+
+.lessonInList:hover {
+    cursor: pointer;
+}

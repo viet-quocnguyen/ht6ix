@@ -1,22 +1,33 @@
 .App {
-  text-align: center;
+  text-align: left;
   font-family: sans-serif;
 }
 
-.container{
+/* contains navbar and main container*/
+.container {
   display: flex;
   flex-direction: row;
 }
 
+/* contains everything (navbar not included) */
 .main {
-  margin-left: 200px;
+  margin-left: calc(200px + 1.5vw);
   display: flex;
   flex-grow: 1;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  margin-right: 1.5vw;
 }
 
-p {
-  text-align:center;
-  flex-grow: 1;
-  font-size:50px; 
-/* TBD the font size */
+/* styling a page title */
+.pageTitle {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 30px 0px;
+}
+
+/* styling for a page subtitle */
+.subtitle {
+  font-size: 20px;
+  margin: 5px;
 }
