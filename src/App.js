@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import List from "./components/LessonsList";
 import LessonStart from "./components/LessonStart";
+import LessonsList from "./components/LessonsList";
 import "./App.css";
 
 // Go
@@ -22,7 +22,7 @@ function App() {
 									<p>Dashboard</p>
 								</Route>
 								<Route exact path="/lessons">
-									<List />
+									<LessonsList />
 								</Route>
 								<Route path="/lessons/">
 									<LessonStart />
