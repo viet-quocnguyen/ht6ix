@@ -1,4 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import Addition from "../assets/Addition.svg";
+import Subtraction from "../assets/Subtraction.svg";
+import Multiplication from "../assets/Multiplication.svg";
+import Division from "../assets/Division.svg";
+import Banner from "../assets/mathBanner.png";
 import "./LessonsList.scss";
 
 // import global context to use global state
@@ -39,7 +44,12 @@ function LessonsList() {
 	}
 
 	return (
-		<div>
+		<div className="lessonsContainer">
+			<div className="bannerContainer">
+				<img className="lessonBanner" src={Banner} alt=""></img>
+				<div className="bannerTitle">Lessons</div>
+			</div>
+
 			<div className="pageTitle">Lessons (?)</div>
 			{lessons.map((lesson, id) => (
 				<div
