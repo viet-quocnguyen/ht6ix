@@ -7,6 +7,7 @@ const initialState = {
 	teacher_id: null,
 	lessons: [],
 	isLoading: false,
+	currentScreen: 'Home',
 };
 
 // Create Context
@@ -38,6 +39,13 @@ export const GlobalProvider = ({ children }) => {
 		});
 	}
 
+	function updateScreen(currentScreen) {
+		dispatch({
+			type: "UPDATE_SCREEN",
+			payload: currentScreen,
+		});
+	}
+
 	return (
 		<GlobalContext.Provider
 			value={{
@@ -48,6 +56,8 @@ export const GlobalProvider = ({ children }) => {
 				updateStudentId: updateStudentId,
 				updateLessons: updateLessons,
 				updateLoading: updateLoading,
+				currentScreen: state.currentScreen,
+				updateScreen: updateScreen,
 			}}
 		>
 			{children}
