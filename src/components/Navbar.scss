@@ -41,12 +41,18 @@
 .navLink {
     margin: 10px 0px;
     padding: 5px 12px 8px 12px;
+    display: flex;
+    align-items: center;
 }
 
 .navLink:hover {
     background-color: $light-yellow;
     cursor: pointer;
     border-radius: 20px;
+}
+
+.linkName {
+    padding-left: 5px;
 }
 
 #avatar {

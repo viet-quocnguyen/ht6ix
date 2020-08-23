@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Avatar from '../assets/Avatar1.png';
-import { User } from 'react-feather';
+import { User, Edit3, BarChart, Settings, Home } from 'react-feather';
 import './Navbar.scss';
 
 class Navbar extends Component {
     render() {
-        const { location: { window.location.pathname } } = this.props;
 
         const navLink = [
             {
+                id: 1,
                 name: 'Home',
                 url: '/',
             }, {
@@ -18,24 +18,16 @@ class Navbar extends Component {
             }, {
                 id: 3,
                 name: 'Progress',
-                url: '',  // TBD
+                url: '/progress',
             }, {
                 id: 4,
-<<<<<<< HEAD
-                name: '????',
-=======
                 name: 'Settings',
->>>>>>> almost done nav bar
-                url: '',  // TBD
+                url: '/settings',
             },
-
-
         ]
-
 
         return (
             <div className="background">
-                {console.log(pathname)}
                 <img src={Avatar} id="avatar" alt="AvatarIcon"></img>
                 <div className="profileButton">
                     <User size={16} style={{ paddingRight: '6px' }} />
@@ -44,9 +36,16 @@ class Navbar extends Component {
                 <div id="navLine"></div>
                 <div className="navigationStack">
                     {navLink.map((link) =>
-                        <div className="navLink" key={link.name} onClick={() => window.location = link.url} > {link.name}</div>)}
+                        <div className="navLink" onClick={() => window.location = link.url} >
+                            {window.location.pathname === link.url && link.id === Number('1') && <Home />}
+                            {window.location.pathname === link.url && link.id === Number('2') && <Edit3 />}
+                            {window.location.pathname === link.url && link.id === Number('3') && <BarChart />}
+                            {window.location.pathname === link.url && link.id === Number('4') && <Settings />}
+                            <div className="linkName">{link.name}</div>
+                        </div>)}
                 </div>
-            </div >
+
+            </div>
         )
     }
 }
