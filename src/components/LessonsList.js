@@ -50,16 +50,55 @@ function LessonsList() {
 				<div className="bannerTitle">Lessons</div>
 			</div>
 			<div className="lessonRow">
-				{lessons.map((lesson, id) => (
-					<div id="staticBox">
-						<div key={id} className="lessonInList" onClick={() =>
-							(window.location = "/lessons/" + lesson.lesson_id)}>
-							<div className="lessonNumber">Lesson {id + 1}</div>
-							<div className="lessonTitle"> {lesson.lesson_name}</div>
-							<div className="questionGallery">
+				{lessons
+					.filter((lesson) => lesson.lesson_topic === "Math")
+					.map((lesson, id) => (
+						<div id="staticBox">
+							<div
+								key={id}
+								className="lessonInList"
+								onClick={() =>
+									(window.location =
+										"/lessons/" + lesson.lesson_id)
+								}
+							>
+								<div className="lessonNumber">
+									Lesson {id + 1}
+								</div>
+								<div className="lessonTitle">
+									{" "}
+									{lesson.lesson_name}
+								</div>
+								<div className="questionGallery"></div>
 							</div>
-						</div></div>
-				))}
+						</div>
+					))}
+			</div>
+
+			<div className="lessonRow">
+				{lessons
+					.filter((lesson) => lesson.lesson_topic === "Geography")
+					.map((lesson, id) => (
+						<div id="staticBox">
+							<div
+								key={id}
+								className="lessonInList"
+								onClick={() =>
+									(window.location =
+										"/lessons/" + lesson.lesson_id)
+								}
+							>
+								<div className="lessonNumber">
+									Lesson {id + 1}
+								</div>
+								<div className="lessonTitle">
+									{" "}
+									{lesson.lesson_name}
+								</div>
+								<div className="questionGallery"></div>
+							</div>
+						</div>
+					))}
 			</div>
 		</div>
 	);
