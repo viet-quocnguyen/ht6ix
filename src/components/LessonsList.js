@@ -1,44 +1,46 @@
-import React, { Component } from 'react';
-import './LessonsList.scss';
-const axios = require('axios');
+import React, { useContext, useEffect, useState } from "react";
+import "./LessonsList.scss";
 
-class LessonsList extends Component {
-    state = {
-        lessons:[]
-    }
+// import global context to use global state
+import { GlobalContext } from "../context/GlobalState";
+const axios = require("axios");
 
-    async componentDidMount() {
+function LessonsList() {
+	const { student_id } = useContext(GlobalContext);
+	const [lessons, setLessons] = useState([]);
 
-        await axios({
-            method: 'post',
-            url: 'https://vietjs.api.stdlib.com/ht6ix@dev/lesson/getLessonsByStudentId/',
-            data: {
-                student_id: 1, 
-            }
-        }).then((response) => {
-            this.setState({
-                lessons: response.data.rows
-            })
-        })
-    }
+	useEffect(() => {
+		axios({
+			method: "post",
+			url:
+				"https://vietjs.api.stdlib.com/ht6ix@dev/lesson/getLessonsByStudentId/",
+			headers: {},
+			data: {
+				student_id: student_id, // This is the body part
+			},
+		}).then((response) => {
+			let lessons = response.data.rows;
 
-    render() {
-        return (
-            <div >
-                <div className="pageTitle">Lessons</div>
-                {this.state.lessons.map((lesson, i) =>
-                    <div className="lessonInList" key={lesson.lesson_id} 
-                    onClick={() => window.location = "/lessons/" + lesson.lesson_id}>
-                        Lesson {i+1} - {lesson.lesson_name}
-                        <div className="questionGallery">
-                            <div id="staticBox"></div>
-                            <div id="staticBox"></div>
-                            <div id="staticBox"></div>
-                        </div></div>)}
-            </div >
-        )
-    }
+			setLessons(lessons);
+		});
+	});
+	return (
+		<div>
+			<div className="pageTitle">Lessons (?)</div>
+			{lessons.map((lesson, id) => (
+				<div
+					key={id}
+					className="lessonInList"
+					onClick={() => (window.location = "/lessons/" + lesson.id)}
+				>
+					Lesson {id + 1} - {lesson.lesson_name}
+					<div className="questionGallery">
+						<div id="staticBox"></div>
+					</div>
+				</div>
+			))}
+		</div>
+	);
 }
-
 
 export default LessonsList;
