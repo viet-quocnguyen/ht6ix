@@ -10,79 +10,117 @@ import "../components/LessonStart.scss";
 import { GlobalContext } from "../context/GlobalState";
 
 function LessonStart() {
-    // const { student_id } = useContext(GlobalContext);
-    // const [lessons, setLessons] = useState([]);
+	const [lesson, setLesson] = useState({});
 
-    // useEffect(() => {
-    // 	axios({
-    // 		method: "post",
-    // 		url:
-    // 			"https://vietjs.api.stdlib.com/ht6ix@dev/lesson/getLessonsByStudentId/",
-    // 		headers: {},
-    // 		data: {
-    // 			student_id: student_id, // This is the body part
-    // 		},
-    // 	}).then((response) => {
-    // 		let lessons = response.data.rows;
+	useEffect(() => {
+		var str = window.location.href;
+		var n = str.lastIndexOf("/");
+		var lesson_id = parseInt(str.substring(n + 1));
+		console.log(lesson_id);
 
-    // 		setLessons(lessons);
-    // 	});
-    // });
+		fetch("https://vietjs.api.stdlib.com/ht6ix@dev/lesson/getLessonById/", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ lesson_id: lesson_id }),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				let result = data.rows[0];
+				setLesson(result);
+			});
+	});
 
-    const lesson = {
-        lesson_name: "Addition",
-        lesson_type: "Mathematics",
-        lesson_id: "1"
-    }
+	const classmates = [
+		{
+			name: "Adam",
+			pic: Dan,
+		},
+		{
+			name: "Nick",
+			pic: Gon,
+		},
+		{
+			name: "Henry",
+			pic: Jen,
+		},
+		{
+			name: "Dan",
+			pic: Dan,
+		},
+		{
+			name: "Gon",
+			pic: Gon,
+		},
+		{
+			name: "Jen",
+			pic: Jen,
+		},
+	];
 
-    const classmates = [
-        {
-            name: "Dan",
-            pic: Dan
-        }, {
-            name: "Gon",
-            pic: Gon
-        }, {
-            name: "Jen",
-            pic: Jen
-        }
+	return (
+		<div className="startContainer">
+			<div className="bannerContainer">
+				<img className="lessonBanner" src={Banner} alt=""></img>
+				<div className="bannerTitle">{lesson.lesson_topic}</div>
+			</div>
+			<div className="lessonDetails">
+				<div className="startBlock ">
+					<img src={Addition}></img>
+					<div className="lessonNumber">
+						Lesson {lesson.lesson_id}{" "}
+					</div>
+					<div className="lessonTitle">{lesson.lesson_name}</div>
+					<div className="lessonSubtitle">
+						{" "}
+						Learn to add like a champ!
+					</div>
+					<div
+						className="startButton"
+						onClick={() =>
+							(window.location =
+								"lessons/" + lesson.lesson_id + "/1")
+						}
+					>
+						Click here to start!
+					</div>
+				</div>
 
-    ]
+				<div className="socialDetails">
+					<div className="friendBlock">
+						<div className="socialTitle">
+							Who in your class did this
+						</div>
 
-
-    return (
-        <div className="startContainer">
-            <div className="bannerContainer">
-                <img className="lessonBanner" src={Banner} alt=""></img>
-                <div className="bannerTitle">{lesson.lesson_type}</div>
-            </div>
-            <div className="lessonDetails">
-                <div className="startBlock ">
-                    <img src={Addition}></img>
-                    <div className="lessonNumber">Lesson 1 </div>
-                    <div className="lessonTitle">{lesson.lesson_name}</div>
-                    <div className="lessonSubtitle"> Learn to add like a champ!</div>
-                    <div className="startButton" onClick={() => window.location = 'lessons/' + lesson.lesson_id + '/1'}>
-                        Click here to start!</div>
-                </div>
-
-                <div className="socialDetails">
-                    <div className="friendBlock">
-                        <div className="socialTitle">Who in your class did this</div>
-                        {classmates.map((classmate) =>
-                            <div className="classmateRow">
-                                <img src={classmate.pic} id="classmatePic"></img>
-                                <div className="classmateName">{classmate.name}</div>
-                            </div>)}
-                    </div>
-                    <div className="countBlock">
-                        <div className="socialTitle">How many times have you done this lesson</div>
-                        <div className="countText">You've never played this one before!</div>
-                    </div>
-                </div>
-            </div>
-        </div >
-    );
+						{classmates
+							.sort(() => 0.5 - Math.random())
+							.slice(0, 3)
+							.map((classmate) => (
+								<div className="classmateRow">
+									<img
+										src={classmate.pic}
+										id="classmatePic"
+									></img>
+									<div className="classmateName">
+										{classmate.name}
+									</div>
+								</div>
+							))}
+					</div>
+					<div className="countBlock">
+						<div className="socialTitle">
+							How many times have you done this lesson
+						</div>
+						<div className="countText">
+							You've never played this one before!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default LessonStart;
