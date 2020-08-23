@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import Addition from "../assets/Addition.svg";
-import Subtraction from "../assets/Subtraction.svg";
-import Multiplication from "../assets/Multiplication.svg";
-import Division from "../assets/Division.svg";
+// import Addition from "../assets/Addition.svg";
+// import Subtraction from "../assets/Subtraction.svg";
+// import Multiplication from "../assets/Multiplication.svg";
+// import Division from "../assets/Division.svg";
 import Banner from "../assets/lessonsBanner.png";
 import "./LessonsList.scss";
 
