@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import Avatar from '../assets/Avatar1.png';
 import { User, Edit3, BarChart, Settings, Home } from 'react-feather';
@@ -49,6 +50,5 @@ class Navbar extends Component {
         )
     }
 }
-
 
 export default Navbar;
