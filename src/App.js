@@ -24,7 +24,6 @@ function App() {
 									<Redirect to="/home" />
 								</Route>
 								<Route path="/home">
-
 									<Home />
 								</Route>
 
@@ -34,11 +33,9 @@ function App() {
 								<Route exact path="/lessons">
 									<LessonsList />
 								</Route>
-								<Route exact path="/lessons/1">
+								<Route exact path="/lessons/:id">
 									<LessonStart />
 								</Route>
-
-
 							</Switch>
 						</div>
 					</div>

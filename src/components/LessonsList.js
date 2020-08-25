@@ -53,10 +53,15 @@ function LessonsList() {
 				{lessons
 					.filter((lesson) => lesson.lesson_topic === "Math")
 					.map((lesson, id) => (
-						<div className="staticBox" onClick={() =>
-							(window.location =
-								"/lessons/" + lesson.lesson_id)}>
-							<div key={id} className="lessonInList">
+						<div
+							key={id}
+							className="staticBox"
+							onClick={() =>
+								(window.location =
+									"/lessons/" + lesson.lesson_id)
+							}
+						>
+							<div className="lessonInList">
 								<div className="lessonNumber">
 									Lesson {id + 1}
 								</div>
@@ -74,14 +79,15 @@ function LessonsList() {
 				{lessons
 					.filter((lesson) => lesson.lesson_topic === "Geography")
 					.map((lesson, id) => (
-						<div className="staticBox" onClick={() =>
-							(window.location =
-								"/lessons/" + lesson.lesson_id)
-						}>
-							<div
-								key={id}
-								className="lessonInList"
-							>
+						<div
+							key={id}
+							className="staticBox"
+							onClick={() =>
+								(window.location =
+									"/lessons/" + lesson.lesson_id)
+							}
+						>
+							<div key={id} className="lessonInList">
 								<div className="lessonNumber">
 									Lesson {id + 1}
 								</div>
