@@ -65,7 +65,7 @@ function QuestionStyle1() {
             <div className="lessonName">Lesson 1: Addition</div>
             <div className="questionBlock">
                 <div className="questionSection">
-                    <img src={Teacher}></img>
+                    <img src={Teacher} className="teacherPic"></img>
                     <div className="questionText">{question.question_text}<img src={Audio}></img></div>
                 </div>
                 <div className="answerSection">
@@ -74,11 +74,11 @@ function QuestionStyle1() {
                     )}
                 </div>
                 <div className="navigationSection">
-                    <img src={LeftArrow} alt="previousQuestion"></img>
+                    <img src={LeftArrow} alt="previousQuestion" id="leftArrow"></img>
                     <div className="questionCount">
-                        <div className="count">1</div>
-                        <div className="count">1</div>
-                        <div className="count">1</div>
+                        <div className="count" id="firstCount">1</div>
+                        <div className="count">2</div>
+                        <div className="count">3</div>
                     </div>
                     <img src={RightArrow} alt="nextQuestion" id="rightArrow"></img>
 

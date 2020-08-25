@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 import LessonStart from "./components/LessonStart";
 import LessonsList from "./components/LessonsList";
 import QuestionStyle1 from "./components/QuestionStyle1";
@@ -19,8 +20,12 @@ function App() {
 						</div>
 						<div className="main">
 							<Switch>
+								<Route exact path="/">
+									<Redirect to="/home" />
+								</Route>
 								<Route path="/home">
-									<p>Dashboard</p>
+
+									<Home />
 								</Route>
 
 								<Route exact path="/lessons/question">

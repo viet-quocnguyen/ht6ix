@@ -17,13 +17,13 @@
 .lessonBanner {
     z-index: -1;
     width: 75vw;
-
+    max-width: 1000px;
 }
 
 .bannerTitle {
     z-index:0;
     position: absolute;
-    top: 25px;
+    top: 50px;
     left: 40px;
     font-weight: bold;
     font-size: 48px;
@@ -133,4 +133,10 @@
 .classmateRow {
     display:flex;
     align-items: center;
+}
+
+.playground {
+    margin-top: 50px;
+    width: 75vw;
+    max-width: 1000px;
 }

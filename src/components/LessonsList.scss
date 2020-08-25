@@ -14,7 +14,7 @@
 }
 
 // the boxes under each lesson TBD pls delete after
-#staticBox {
+.staticBox {
     width: 200px;
     height: 350px;
     margin-right: 21px;
@@ -24,6 +24,10 @@
     justify-content: flex-end;
     background-color: $light-yellow;
     padding: 0px 20px;
+}
+
+.staticBox:hover {
+    cursor: pointer;
 }
 
 .lessonRow {

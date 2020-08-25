@@ -81,7 +81,7 @@ function LessonStart() {
 						className="startButton"
 						onClick={() =>
 							(window.location =
-								"lessons/" + lesson.lesson_id + "/1")
+								"/lessons/question")
 						}
 					>
 						Click here to start!
