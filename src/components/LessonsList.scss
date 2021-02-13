@@ -1,3 +1,9 @@
+@import "../assets/theme";
+
+.lessonsContainer {
+    margin: 20px;
+}
+
 // styles the set of boxes under each lesson
 .questionGallery {
     display: flex;
@@ -8,21 +14,35 @@
 }
 
 // the boxes under each lesson TBD pls delete after
-#staticBox {
-    width: 150px;
-    height: 170px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    background-color: #c4c4c4; //TBD colour
+.staticBox {
+    width: 200px;
+    height: 350px;
+    margin-right: 21px;
+    border-radius: 16px;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
+    background-color: $light-yellow;
+    padding: 0px 20px;
+}
+
+.staticBox:hover {
+    cursor: pointer;
+}
+
+.lessonRow {
+    margin-top: calc(20px + 5vh);
+    display:flex;
+    flex-direction:row;
 }
 
 // styles each lesson, title included
 .lessonInList {
-    margin: 20px 0px 30px 50px;
+    margin: 20px 0px 30px 0px;
+    color: $dark-yellow;
 }
 
-.lessonInList:hover {
+.staticBox:hover {
     cursor: pointer;
 } 
 // hello 

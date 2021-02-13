@@ -16,6 +16,11 @@ export default (state, action) => {
 				...state,
 				isLoading: action.payload,
 			};
+		case "UPDATE_SCREEN":
+			return {
+				...state,
+				currentScreen: action.payload,
+			};
 		default:
 			return state;
 	}
